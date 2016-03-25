@@ -64,12 +64,12 @@ services:
     ports:
       - "9003:9003"
 
-  turbine:
-    container_name: turbine
-    image:          'griddynamics/turbine:latest'
-    command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver',  '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
-    expose:
-      - "9004"
-    ports:
-      - "9004:9004"
+  # turbine:
+  #   container_name: turbine
+  #   image:          'griddynamics/turbine:latest'
+  #   command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver',  '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+  #   expose:
+  #     - "9004"
+  #   ports:
+  #     - "9004:9004"
 
