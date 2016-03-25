@@ -1,0 +1,75 @@
+version: '2'
+
+services:
+
+  configserver:
+    container_name: configserver
+    image:          'griddynamics/configserver:latest'
+    expose:
+      - "9000"
+    ports:
+      - "9000:9000"
+
+  eureka1:
+    container_name: eureka1
+    image:          'griddynamics/eureka:latest'
+    command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    expose:
+      - "9001"
+    ports:
+      - "9011:9001"
+
+  eureka2:
+    container_name: eureka2
+    image:          'griddynamics/eureka:latest'
+    command:        ['--spring.profiles.active=zone2', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    expose:
+      - "9001"
+    ports:
+      - "9012:9001"
+
+  popa1:
+    container_name: popa1
+    image:          'griddynamics/popa:latest'
+    command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    expose:
+      - "9090"
+    ports:
+      - "9091:9090"
+
+  popa2:
+    container_name: popa2
+    image:          'griddynamics/popa:latest'
+    command:        ['--spring.profiles.active=zone2', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    expose:
+      - "9090"
+    ports:
+      - "9092:9090"
+
+  zuul:
+    container_name: zuul
+    image:          'griddynamics/zuul:latest'
+    command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    expose:
+      - "9002"
+    ports:
+      - "9002:9002"
+
+  admin:
+    container_name: admin
+    image:          'griddynamics/admin:latest'
+    command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    expose:
+      - "9003"
+    ports:
+      - "9003:9003"
+
+  turbine:
+    container_name: turbine
+    image:          'griddynamics/turbine:latest'
+    command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver',  '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    expose:
+      - "9004"
+    ports:
+      - "9004:9004"
+

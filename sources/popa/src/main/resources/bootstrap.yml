@@ -1,0 +1,26 @@
+
+project:
+  artifactId:   ''
+  name:         ''
+  version:      ''
+  description:  ''
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+spring:
+  application:
+    name: popa
+  cloud:
+    config:
+      uri:      http://${configserver.host:localhost}:9000
+      username: configserver
+      password: configserver_password
+      failFast: true
+  config:
+    retry:
+      maxAttempts: 20
+      maxInterval: 50000
