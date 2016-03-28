@@ -22,5 +22,7 @@ spring:
       failFast: true
   config:
     retry:
-      maxAttempts: 20
-      maxInterval: 50000
+      initialInterval:  10000
+      multiplier:       1.1
+      maxAttempts:      20
+      maxInterval:      70000

@@ -16,11 +16,16 @@ spring:
     name: turbine
   cloud:
     config:
-      uri:      http://${configserver.host:localhost}:9000
-      username: configserver
-      password: configserver_password
+      discovery.enabled: true
       failFast: true
   config:
     retry:
-      maxAttempts: 20
-      maxInterval: 50000
+      initialInterval:  10000
+      multiplier:       1.1
+      maxAttempts:      20
+      maxInterval:      70000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://eurekaserver:eurekaserver_password@${eureka.zone1.host:localhost}:9001/eureka/

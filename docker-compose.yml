@@ -5,6 +5,7 @@ services:
   configserver:
     container_name: configserver
     image:          'griddynamics/configserver:latest'
+    command:        ['--spring.profiles.active=zone1', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
     expose:
       - "9000"
     ports:
@@ -31,7 +32,7 @@ services:
   popa1:
     container_name: popa1
     image:          'griddynamics/popa:latest'
-    command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    command:        ['--spring.profiles.active=zone1', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
     expose:
       - "9090"
     ports:
@@ -40,7 +41,7 @@ services:
   popa2:
     container_name: popa2
     image:          'griddynamics/popa:latest'
-    command:        ['--spring.profiles.active=zone2', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    command:        ['--spring.profiles.active=zone2', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
     expose:
       - "9090"
     ports:
@@ -49,7 +50,7 @@ services:
   zuul:
     container_name: zuul
     image:          'griddynamics/zuul:latest'
-    command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    command:        ['--spring.profiles.active=zone1', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
     expose:
       - "9002"
     ports:
@@ -58,7 +59,7 @@ services:
   admin:
     container_name: admin
     image:          'griddynamics/admin:latest'
-    command:        ['--spring.profiles.active=zone1', '--configserver.host=configserver', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
+    command:        ['--spring.profiles.active=zone1', '--eureka.zone1.host=eureka1', '--eureka.zone2.host=eureka2']
     expose:
       - "9003"
     ports:

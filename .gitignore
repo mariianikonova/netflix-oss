@@ -210,3 +210,9 @@ Temporary Items
 .apdisk
 /target/
 *.pdfmarks
+/sources/configserver/target/
+/sources/eureka/target/
+/sources/popa/target/
+/sources/turbine/target/
+/sources/admin/target/
+/sources/zuul/target/
