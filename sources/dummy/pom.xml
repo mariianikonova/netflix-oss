@@ -8,14 +8,19 @@
     <parent>
         <groupId>ru.xxlabaza.test</groupId>
         <artifactId>microservices</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </parent>
     
-    <artifactId>popa</artifactId>
+    <artifactId>dummy</artifactId>
     <packaging>jar</packaging>
     
+    <name>Dummy Service</name>
+    <description>
+        Spring Boot Netflix OSS based Dummy Service
+    </description>
+    
     <properties>
-        <start-class>ru.xxlabaza.test.popa.Main</start-class>
+        <start-class>ru.xxlabaza.test.dummy.Main</start-class>
     </properties>
     
     <build>

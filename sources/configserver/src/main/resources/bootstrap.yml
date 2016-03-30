@@ -13,7 +13,7 @@ info:
 
 spring:
   application:
-    name: configserver  # по этому имени, по умолчанию, все остальные сервисы будут исать канфиг сервер. Иначе, надо у всех клиентов менять spring.cloud.config.discovery.serviceId
+    name: configserver
   cloud:
     config:
       server:

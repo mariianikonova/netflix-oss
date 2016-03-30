@@ -16,7 +16,9 @@ spring:
     name: admin
   cloud:
     config:
-      discovery.enabled: true
+      uri:      http://${configserver.host:localhost}:9000
+      username: configserver
+      password: configserver_password
       failFast: true
   config:
     retry:
@@ -24,8 +26,3 @@ spring:
       multiplier:       1.1
       maxAttempts:      20
       maxInterval:      70000
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone:  http://eurekaserver:eurekaserver_password@${eureka.zone1.host:localhost}:9001/eureka/

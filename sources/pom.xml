@@ -13,7 +13,7 @@
     
     <groupId>ru.xxlabaza.test</groupId>
     <artifactId>microservices</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
     
     <name>Microservices Parent</name>
@@ -32,7 +32,7 @@
     <modules>
         <module>configserver</module>
         <module>eureka</module>
-        <module>popa</module>
+        <module>dummy</module>
         <module>zuul</module>
         <module>admin</module>
         <module>turbine</module>

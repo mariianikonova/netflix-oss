@@ -8,7 +8,7 @@
     <parent>
         <groupId>ru.xxlabaza.test</groupId>
         <artifactId>microservices</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </parent>
     
     <artifactId>zuul</artifactId>
@@ -90,9 +90,9 @@
             <artifactId>jolokia-core</artifactId>
         </dependency>
         
-<!--        <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
-        </dependency>-->
+        </dependency>
     </dependencies>
 </project>
